@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:aop="http://www.springframework.org/schema/aop"  
+    xmlns:tx="http://www.springframework.org/schema/tx"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+                       http://www.springframework.org/schema/context  
+                       http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+                       http://www.springframework.org/schema/aop  
+                       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+                       http://www.springframework.org/schema/tx  
+                       http://www.springframework.org/schema/tx/spring-tx-3.0.xsd"> 
+
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>	
+	
+	<bean id="simpleUrlHandlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/user.do">userController</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<!-- ############################controller################################## -->
+	<!-- 方法名解析器 -->
+	<bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
+		<property name="paramName" value="action" />
+	</bean>
+	
+	<bean id="userController" class="com.aheizi.controller.UserController">
+		<property name="methodNameResolver" ref="methodNameResolver" />
+		<property name="userService" ref="userService"></property>
+	</bean>
+	
+	<!-- ############################service################################## -->
+	<bean id="userService" class="com.aheizi.service.UserServiceImpl">
+		<property name="userDao" ref="userDao"></property>
+	</bean>
+	
+	<!-- ############################dao################################## -->
+	<bean id="userDao" class="com.aheizi.dao.UserDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	
+</beans>
