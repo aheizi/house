@@ -1,7 +1,9 @@
-#Wed Apr 15 17:29:44 CST 2015
+#Sat Apr 25 16:01:44 CST 2015
 clsCnt=1
 eclipse.preferences.version=1
 locCnt=17
 pkgCnt=3
 sTime=2011\u5E7411\u67089\u65E5 \u661F\u671F\u4E09 \u4E0B\u534802\u65F649\u520615\u79D2 CST
 srcCnt=4
+validator.Checked=src/main/webapp/js/jquery.min.js
+validator.Unchecked=

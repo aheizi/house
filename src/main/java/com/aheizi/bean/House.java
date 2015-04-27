@@ -1,26 +1,39 @@
 package com.aheizi.bean;
 
+
+
 public class House {
+	private int id;				 //ID
 	private String publisher;    //发布者
 	private String publishDate;	 //发布日期
 	private String region;		 //地区，存市（根据IP获得）
 	private String hireWay;      //出租方式
 	private String identity;     //身份（个人，经纪人）
+	private String provinces;    //省
+	private String city;         //市
+	private String country;      //区
 	private String communityName;//小区名称
-	private String room;         //房屋类型（室）
-	private String hall;         //房屋类型（厅）
-	private String toilet;       //房屋类型（卫）
-	private String squareMeter;  //房屋类型（平方米）
-	private String floor;        //楼层（第几层）
-	private String floorth;      //楼层（共几层）
-	private String rent;         //租金（租金）
+	private int room;            //房屋类型（室）
+	private int hall;            //房屋类型（厅）
+	private int toilet;          //房屋类型（卫）
+	private int squareMeter;     //房屋类型（平方米）
+	private int floor;           //楼层（第几层）
+	private int floorth;         //楼层（共几层）
+	private int rent;            //租金（租金）
 	private String rentWay;      //租金（租金方式）
 	private String title;        //标题
 	private String description;  //房源描述
 	private String imgUrl;       //图片URL
 	private String contact;      //联系人
 	private String contactTel;   //联系人电话
+	private String qqNum;        //QQ号码
 	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getPublisher() {
 		return publisher;
 	}
@@ -51,52 +64,70 @@ public class House {
 	public void setIdentity(String identity) {
 		this.identity = identity;
 	}
+	public String getProvinces() {
+		return provinces;
+	}
+	public void setProvinces(String provinces) {
+		this.provinces = provinces;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getCountry() {
+		return country;
+	}
+	public void setCountry(String country) {
+		this.country = country;
+	}
 	public String getCommunityName() {
 		return communityName;
 	}
 	public void setCommunityName(String communityName) {
 		this.communityName = communityName;
 	}
-	public String getRoom() {
+	public int getRoom() {
 		return room;
 	}
-	public void setRoom(String room) {
+	public void setRoom(int room) {
 		this.room = room;
 	}
-	public String getHall() {
+	public int getHall() {
 		return hall;
 	}
-	public void setHall(String hall) {
+	public void setHall(int hall) {
 		this.hall = hall;
 	}
-	public String getToilet() {
+	public int getToilet() {
 		return toilet;
 	}
-	public void setToilet(String toilet) {
+	public void setToilet(int toilet) {
 		this.toilet = toilet;
 	}
-	public String getSquareMeter() {
+	public int getSquareMeter() {
 		return squareMeter;
 	}
-	public void setSquareMeter(String squareMeter) {
+	public void setSquareMeter(int squareMeter) {
 		this.squareMeter = squareMeter;
 	}
-	public String getFloor() {
+	public int getFloor() {
 		return floor;
 	}
-	public void setFloor(String floor) {
+	public void setFloor(int floor) {
 		this.floor = floor;
 	}
-	public String getFloorth() {
+	public int getFloorth() {
 		return floorth;
 	}
-	public void setFloorth(String floorth) {
+	public void setFloorth(int floorth) {
 		this.floorth = floorth;
 	}
-	public String getRent() {
+	public int getRent() {
 		return rent;
 	}
-	public void setRent(String rent) {
+	public void setRent(int rent) {
 		this.rent = rent;
 	}
 	public String getRentWay() {
@@ -134,5 +165,11 @@ public class House {
 	}
 	public void setContactTel(String contactTel) {
 		this.contactTel = contactTel;
+	}
+	public String getQqNum() {
+		return qqNum;
+	}
+	public void setQqNum(String qqNum) {
+		this.qqNum = qqNum;
 	}
 }

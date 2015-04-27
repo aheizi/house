@@ -10,6 +10,10 @@ public class UserServiceImpl implements UserService {
 	public void saveUser(User user) {
 		userDao.saveUser(user);
 	}
+	
+	public User getUserByUserName(String userName) {
+		return userDao.getUserByUserName(userName);
+	}
 
 	public UserDao getUserDao() {
 		return userDao;
@@ -18,5 +22,7 @@ public class UserServiceImpl implements UserService {
 	public void setUserDao(UserDao userDao) {
 		this.userDao = userDao;
 	}
+
+	
 	
 }

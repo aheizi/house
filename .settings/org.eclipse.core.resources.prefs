@@ -1,9 +1,14 @@
-#Fri Apr 24 12:53:51 CST 2015
+#Sat Apr 25 23:39:47 CST 2015
 eclipse.preferences.version=1
 encoding//src/main/java=utf-8
+encoding//src/main/java/com/aheizi/controller/HouseController.java=UTF-8
+encoding//src/main/java/com/aheizi/controller/UserController.java=utf-8
 encoding//src/main/resources=utf-8
 encoding//src/main/webapp=UTF-8
+encoding//src/main/webapp/WEB-INF=UTF-8
 encoding//src/main/webapp/WEB-INF/pages=UTF-8
+encoding//src/main/webapp/WEB-INF/spring-servlet.xml=UTF-8
+encoding//src/main/webapp/WEB-INF/web.xml=UTF-8
 encoding//src/main/webapp/houseDtail.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/login.jsp=UTF-8

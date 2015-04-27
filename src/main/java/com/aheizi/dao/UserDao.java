@@ -5,4 +5,5 @@ import com.aheizi.bean.User;
 public interface UserDao {
 	public void saveUser(User user);
 	
+	public User getUserByUserName(String userName);
 }

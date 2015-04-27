@@ -22,6 +22,7 @@
 		<property name="mappings">
 			<props>
 				<prop key="/user.do">userController</prop>
+				<prop key="/house.do">houseController</prop>
 			</props>
 		</property>
 	</bean>
@@ -31,19 +32,34 @@
 	<bean id="methodNameResolver" class="org.springframework.web.servlet.mvc.multiaction.ParameterMethodNameResolver">
 		<property name="paramName" value="action" />
 	</bean>
-	
+	<!-- 用户信息 -->
 	<bean id="userController" class="com.aheizi.controller.UserController">
 		<property name="methodNameResolver" ref="methodNameResolver" />
 		<property name="userService" ref="userService"></property>
 	</bean>
+	<!-- 房屋信息 -->
+	<bean id="houseController" class="com.aheizi.controller.HouseController">
+		<property name="methodNameResolver" ref="methodNameResolver"></property>
+		<property name="houseService" ref="houseService"></property>
+	</bean>
 	
 	<!-- ############################service################################## -->
+	<!-- 用户信息 -->
 	<bean id="userService" class="com.aheizi.service.UserServiceImpl">
 		<property name="userDao" ref="userDao"></property>
 	</bean>
+	<!-- 房屋信息 -->
+	<bean id="houseService" class="com.aheizi.service.HouseServiceImpl">
+		<property name="houseDao" ref="houseDao"></property>
+	</bean>
 	
 	<!-- ############################dao################################## -->
+	<!-- 用户信息 -->
 	<bean id="userDao" class="com.aheizi.dao.UserDaoImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate" />
+	</bean>
+	<!-- 房屋信息 -->
+	<bean id="houseDao" class="com.aheizi.dao.HouseDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
 	</bean>
 	

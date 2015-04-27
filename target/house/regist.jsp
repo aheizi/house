@@ -1,17 +1,87 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<html lang="zh">
 <head>
 	<meta charset="UTF-8">
 	<title>regist</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/regist.css"/>
-	<script type="text/javascript" src="js/jquery.js"></script>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/utils.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		function checkUser(){
-			//check的条件
+		$(function(){
+			$("#checkUserName").hide();
+			$("#checkPassword").hide();
+			$("#checkEmail").hide();
+		});
+		
+		//检查用户名是否已经注册
+		function checkUserName(){
+			var userName = $("#userName").val(); 
+			jQuery.ajax({
+    		    url : "user.do?action=checkUserName",
+        	    cache : false,
+        	    type : "post",
+        	    async : false,
+				data: "userName=" + userName,
+                success: function(data){
+                	$("#checkUserName").hide();
+                	$("#regist").removeAttr("disabled");
+    			},
+    			error:function(msg){
+          			$("#checkUserName").show();
+          			$("#regist").attr("disabled", "disabled");
+          		}
+    		});
+		}
+		
+		//检查两次输入的密码是否一致
+		function checkPassword(){
+			var password = $("#password").val();
+			var rePassword = $("#rePassword").val();
+			if(password != rePassword){
+				$("#checkPassword").show();
+				$("#regist").attr("disabled", "disabled");
+			}else{
+				$("#checkPassword").hide();
+				$("#regist").removeAttr("disabled");
+			}
+		}
+		
+		//检查邮箱格式是否正确
+		function checkEmail(){
+			var email= $("#email").val();
 			
-			alert("nihao");
+			if(!IsEmail(email)){
+				$("#checkEmail").show();
+				$("#regist").attr("disabled", "disabled");
+			}else{
+				$("#checkEmail").hide();
+				$("#regist").removeAttr("disabled");
+			}
+		}
+		
+		//提交表单
+		function submit(){
+			var userName = $("#userName").val(); 
+			var email= $("#email").val();
+			var password = $("#password").val();
 			
-			//提交表单
+			if(userName==""){
+				alert("请先输入用户名");
+				return false;
+			}
+			
+			if(email==""){
+				alert("请先输入邮箱");
+				return false;
+			}
+			
+			if(password==""){
+				alert("请先输入密码");
+				return false;
+			}
+			
 			$("#form").submit();
 		}
 	</script>
@@ -38,47 +108,60 @@
 				</span>
 			</div>
 		</div>
-		<form id="form" action="user.do?action=saveUser" method="post">
-			<input type="hidden" name="type" value="normal">
-			<div class="regtable">
+		<div class="regtable">
+			<form id="form" class="form-horizontal" action="user.do?action=saveUser" method="post">
+				<input type="hidden" name="type" value="normal">
 				<table>
 					<tr>
 						<td>用户名</td>
 						<td>
-							<input type="text" name="userName">
+							<input type="text" class="form-control margin_top margin_left" name="userName" id="userName" onblur="checkUserName();">
 						</td>
-					</tr>
+						<td>&nbsp&nbsp</td>
+						<td>
+							<span id="checkUserName" class="mark">该用户名已经被注册</span>
+						</td>
+					</tr> 
 					<tr>
 						<td>邮箱</td>
 						<td>
-							<input type="text" name="email">
+							<input type="text" class="form-control margin_top margin_left" name="email" id="email" onblur="checkEmail();">
+						</td>
+						<td>&nbsp&nbsp</td>
+						<td>
+							<span id="checkEmail" class="mark">邮箱格式不正确</span>
 						</td>
 					</tr>
 					<tr>
 						<td>密码</td>
 						<td>
-							<input type="password" name="password" id="password">
+							<input type="text" class="form-control margin_top margin_left" name="password" id="password">
 						</td>
 					</tr>
 					<tr>
 						<td>确认密码</td>
 						<td>
-							<input type="password" id="repassword">
+							<input type="text" class="form-control margin_top margin_left" id="rePassword" onblur="checkPassword();">
+						</td>
+						<td>&nbsp&nbsp</td>
+						<td>
+							<span id="checkPassword" class="mark">两次输入密码不一致</span>
 						</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
-							<input type="button" value="注册" onclick="checkUser()">
-							<input type="button" value="清空">
+							<input type="button" id="regist" class="btn btn-default margin_top" value="注册" onclick="submit();">
+							<input type="button" class="btn btn-default margin_top" value="清空">
 						</td>
 					</tr>
 				</table>
-			</div>
-		</form>
+			</form>
+		</div>
 	</div>
 	<div class="footer">
 		<span class="outher">@outher aheizi</span>
 	</div>
 </body>
 </html>
+					

@@ -1,9 +1,13 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<title>houseDtail</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
 	<link rel="stylesheet" type="text/css" href="css/houseDtail.css"/>
+	<script src="js/jquery.min.js" type="text/javascript"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<div class="topbar">
@@ -30,7 +34,7 @@
 				</a>
 			</span>
 			<span class="publish">
-				<span><a href="publish.jsp">发布信息</a></span>
+				<a class="btn btn-default" href="publish.jsp" role="button">发布信息</a>
 			</span>
 		</div>
 	</div>
@@ -50,23 +54,23 @@
 				</div>
 			</div>
 			<div class="dtail">
-				<li>
+				<li class="margin_top">
 					<div class="sub_t">价格</div>
 					<div class="sub_c"></div>
 				</li>
-				<li>
+				<li class="margin_top">
 					<div class="sub_t">概况</div>
 					<div class="sub_c"></div>
 				</li>
-				<li>
+				<li class="margin_top">
 					<div class="sub_t">楼层</div>
 					<div class="sub_c"></div>
 				</li>
-				<li>
+				<li class="margin_top">
 					<div class="sub_t">区域</div>
 					<div class="sub_c"></div>
 				</li>
-				<li>
+				<li class="margin_top">
 					<div class="sub_t">联系</div>
 					<div class="sub_c"></div>
 				</li>
