@@ -7,6 +7,7 @@ com\aheizi\dao\UserDaoImpl$2.class
 com\aheizi\dao\BaseDao.class
 com\aheizi\bean\User.class
 com\aheizi\dao\UserDao.class
+com\aheizi\dao\HouseDaoImpl$3.class
 com\aheizi\service\UserServiceImpl.class
 com\aheizi\dao\UserDaoImpl.class
 com\aheizi\controller\UserController.class
@@ -14,5 +15,6 @@ com\aheizi\util\Util.class
 com\aheizi\service\HouseService.class
 com\aheizi\dao\HouseDaoImpl.class
 com\aheizi\service\HouseServiceImpl.class
+com\aheizi\dao\HouseDaoImpl$2.class
 com\aheizi\dao\UserDaoImpl$1.class
 com\aheizi\controller\HouseController.class

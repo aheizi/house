@@ -135,13 +135,13 @@
 					<tr>
 						<td>密码</td>
 						<td>
-							<input type="text" class="form-control margin_top margin_left" name="password" id="password">
+							<input type="password" class="form-control margin_top margin_left" name="password" id="password">
 						</td>
 					</tr>
 					<tr>
 						<td>确认密码</td>
 						<td>
-							<input type="text" class="form-control margin_top margin_left" id="rePassword" onblur="checkPassword();">
+							<input type="password" class="form-control margin_top margin_left" id="rePassword" onblur="checkPassword();">
 						</td>
 						<td>&nbsp&nbsp</td>
 						<td>

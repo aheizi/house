@@ -19,7 +19,7 @@ public class UserController extends MultiActionController{
 		//封装user
 		User user = new User();
 		super.bind(request, user);
-		request.getSession().setAttribute("userSession", user);
+		request.getSession().setAttribute("userSession", user.getUserName());
 		
 		//保存用户到数据库
 		userService.saveUser(user);
@@ -71,12 +71,16 @@ public class UserController extends MultiActionController{
 		//检查userName是否已经被注册
 		User user = userService.getUserByUserName(userName);
 		
+		System.out.println(userName);
+		
 		//如果用户未绑定微信
 		if(user != null){
 			response.setStatus(500);
 			response.getWriter().println("该用户名已经被注册");
 			return null;
 		}
+		
+		
 		
 		//登陆成功，将该用户加入到session
 		request.getSession().setAttribute("userSession", userName);

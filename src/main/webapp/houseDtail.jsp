@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="css/houseDtail.css"/>
 	<script src="js/jquery.min.js" type="text/javascript"></script>
 	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 	<div class="topbar">
@@ -34,17 +35,24 @@
 				</a>
 			</span>
 			<span class="publish">
-				<a class="btn btn-default" href="publish.jsp" role="button">发布信息</a>
+				<c:choose>
+					<c:when test="${not empty sessionScope.userSession}">
+						<a class="btn btn-default" href="publish.jsp" role="button">发布信息</a>
+					</c:when>
+					<c:otherwise>
+						<a class="btn btn-default" href="login.jsp" role="button">发布信息</a>
+					</c:otherwise>
+				</c:choose>
 			</span>
 		</div>
 	</div>
 	<div class="content">
 		<div class="main">
 			<div class="mainTitle">
-				<h3>CBD嘉明花园 中装大两室 全明户型 仅1800  （ 坐拥繁华 闹中取静 居家首选 ）</h3>
+				<h3>${houseDtail.title}</h3>
 			</div>
 			<div class="time">
-				<span>2015-04-21</span>
+				<span>${houseDtail.publishDate}</span>
 			</div>
 			<div class="mainTop">
 				<div class="img">
@@ -56,23 +64,23 @@
 			<div class="dtail">
 				<li class="margin_top">
 					<div class="sub_t">价格</div>
-					<div class="sub_c"></div>
+					<div class="sub_c">${houseDtail.rent}元</div>
 				</li>
 				<li class="margin_top">
 					<div class="sub_t">概况</div>
-					<div class="sub_c"></div>
+					<div class="sub_c">${houseDtail.room}室${houseDtail.hall}厅${houseDtail.toilet}卫  &nbsp&nbsp&nbsp&nbsp ${houseDtail.squareMeter}㎡</div>
 				</li>
 				<li class="margin_top">
 					<div class="sub_t">楼层</div>
-					<div class="sub_c"></div>
+					<div class="sub_c">${houseDtail.floor}层/${houseDtail.floorth}层</div>
 				</li>
 				<li class="margin_top">
 					<div class="sub_t">区域</div>
-					<div class="sub_c"></div>
+					<div class="sub_c">${houseDtail.communityName}</div>
 				</li>
 				<li class="margin_top">
 					<div class="sub_t">联系</div>
-					<div class="sub_c"></div>
+					<div class="sub_c">${houseDtail.contact}(${houseDtail.identity})/电话:${houseDtail.contactTel}</div>
 				</li>
 			</div>
 		</div>
@@ -83,7 +91,7 @@
 		</div>
 		<div class="cur">
 			<span>
-				时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，时尚两居，小区环境优雅，空气清爽，附近有大型购物广场，
+				${houseDtail.description}
 			</span>
 		</div>
 	</div>

@@ -83,7 +83,7 @@
 					<td></td>
 					<td>
 						<input type="button" class="btn btn-default margin_top margin_left_big" value="登陆" onclick="submit_check();">
-						<a href="index.jsp">
+						<a href="regist.jsp">
 							<input type="button" class="btn btn-default margin_top margin_left_big" value="注册">
 						</a>
 					</td>
