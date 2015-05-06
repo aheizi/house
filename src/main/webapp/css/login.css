@@ -2,7 +2,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 a{cursor: pointer;}
 body{margin: 0px;height: 100%;}
 html{height: 100%;}
-.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 88px;border-bottom: #dbe0e3 1px solid;}
+.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 137px;border-bottom: #dbe0e3 1px solid;}
 .logo{float: left;}
 
 .house{margin-top: 0px;float: left;margin-left: 150px;}
@@ -16,4 +16,3 @@ html{height: 100%;}
 .margin_left{margin-left: 5px;}
 .margin_top{margin-top: 5px;}
 .margin_left_big{margin-left: 10px;}
-

@@ -9,7 +9,7 @@ body{margin: 0px;}
 .login{}
 
 .logo{float: left;}
-.publish{float: right;margin: 25px auto;}
+.publish{float: right;margin: 55px auto;}
 
 .margin_span{margin-bottom: 7px;}
 .search{width: 1000px;border: solid 1px #e1e1e1;margin: 0 auto;clear: both;font-size: 15px;padding: 5px 15px 10px;color: gray;position: relative;z-index: 3;}
@@ -19,6 +19,12 @@ body{margin: 0px;}
 .img_c{width: 100px;height:100px;}
 .content{width: 539px;height: 119px;border: none;border-bottom: solid 1px #ddd;line-height: 28px;vertical-align: middle;color: #666;border-collapse: collapse;}
 .price{width: 132px;height: 119px;border: none;border-bottom: solid 1px #ddd;line-height: 28px;vertical-align: middle;color: #666;border-collapse: collapse;}
+
+.width{width: 107px;}
+
+.suspension{position:fixed;width: 200px;height: 200px;left:1060px;top:68%}
+.ss{margin-bottom: 10px;}
+
 .outher{line-height: 32px;text-align: center;color: #999;font-size: 14px;}
 .footer{width: 1000px;margin-left: auto;margin-right: auto;border-top: 1px solid #ededed;margin-bottom: 0px;text-align: center;}
 

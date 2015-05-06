@@ -1,4 +1,4 @@
-#Sat Apr 25 23:39:47 CST 2015
+#Wed May 06 18:26:32 CST 2015
 eclipse.preferences.version=1
 encoding//src/main/java=utf-8
 encoding//src/main/java/com/aheizi/controller/HouseController.java=UTF-8
@@ -10,9 +10,26 @@ encoding//src/main/webapp/WEB-INF/pages=UTF-8
 encoding//src/main/webapp/WEB-INF/spring-servlet.xml=UTF-8
 encoding//src/main/webapp/WEB-INF/web.xml=UTF-8
 encoding//src/main/webapp/houseDtail.jsp=UTF-8
+encoding//src/main/webapp/in_index.jsp=UTF-8
 encoding//src/main/webapp/index.jsp=UTF-8
 encoding//src/main/webapp/login.jsp=UTF-8
+encoding//src/main/webapp/manager_header.jsp=UTF-8
+encoding//src/main/webapp/manager_in.jsp=UTF-8
+encoding//src/main/webapp/manager_index.jsp=UTF-8
+encoding//src/main/webapp/manager_menu.jsp=UTF-8
+encoding//src/main/webapp/manager_news.jsp=UTF-8
+encoding//src/main/webapp/manager_news_add.jsp=UTF-8
+encoding//src/main/webapp/manager_out.jsp=UTF-8
+encoding//src/main/webapp/manager_user.jsp=UTF-8
+encoding//src/main/webapp/manager_user_add.jsp=UTF-8
+encoding//src/main/webapp/manager_welcome.jsp=UTF-8
+encoding//src/main/webapp/my_house_bzzx.jsp=UTF-8
+encoding//src/main/webapp/my_house_grzl.jsp=UTF-8
+encoding//src/main/webapp/my_house_grzl_password.jsp=UTF-8
+encoding//src/main/webapp/my_house_wdfb.jsp=UTF-8
+encoding//src/main/webapp/my_house_wdsc.jsp=UTF-8
 encoding//src/main/webapp/publish.jsp=UTF-8
+encoding//src/main/webapp/publish_in.jsp=UTF-8
 encoding//src/main/webapp/regist.jsp=UTF-8
 encoding//src/test/java=utf-8
 encoding//src/test/resources=utf-8

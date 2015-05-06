@@ -21,8 +21,23 @@
 			</div>
 			<div class="bar_right">
 				<div class="login">
-					<a href="login.jsp">登陆</a>
-					<a href="regist.jsp">注册</a>
+					<c:choose>
+						<c:when test="${not empty sessionScope.userSession}">
+							<li class="dropdown" id="accountmenu">
+		                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userSession}<b class="caret"></b></a>
+		                        <ul class="dropdown-menu">
+		                            <li><a href="my_house_grzl.jsp">我的house</a></li>
+		                            <li><a href="my_house_wdfb.jsp">我的发布</a></li>
+		                            <li><a href="my_house_wdsc.jsp">我的收藏</a></li>
+									<li><a href="user.do?action=logout">退出</a></li>
+		                        </ul>
+		                    </li>
+						</c:when>
+						<c:otherwise>
+							<a href="login.jsp">登陆</a>
+							<a href="regist.jsp">注册</a>
+						</c:otherwise>
+					</c:choose>
 				</div>
 			</div>
 		</div>
@@ -37,10 +52,10 @@
 			<span class="publish">
 				<c:choose>
 					<c:when test="${not empty sessionScope.userSession}">
-						<a class="btn btn-default" href="publish.jsp" role="button">发布信息</a>
+						<a class="btn btn-default" href="publish.jsp" type="button">发布信息</a>
 					</c:when>
 					<c:otherwise>
-						<a class="btn btn-default" href="login.jsp" role="button">发布信息</a>
+						<a class="btn btn-default" href="login.jsp" type="button">发布信息</a>
 					</c:otherwise>
 				</c:choose>
 			</span>

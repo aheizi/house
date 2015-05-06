@@ -42,10 +42,9 @@
 							<li class="dropdown" id="accountmenu">
 		                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userSession}<b class="caret"></b></a>
 		                        <ul class="dropdown-menu">
-		                            <li><a href="#">我的house</a></li>
-		                            <li><a href="#">我的发布</a></li>
-		                            <!-- <li class="divider"></li> -->
-		                            <li><a href="#">我的收藏</a></li>
+		                            <li><a href="my_house_grzl.jsp">我的house</a></li>
+		                            <li><a href="my_house_wdfb.jsp">我的发布</a></li>
+		                            <li><a href="my_house_wdsc.jsp">我的收藏</a></li>
 									<li><a href="user.do?action=logout">退出</a></li>
 		                        </ul>
 		                    </li>
@@ -69,13 +68,19 @@
 			<span class="publish">
 				<c:choose>
 					<c:when test="${not empty sessionScope.userSession}">
-						<a class="btn btn-default" href="publish.jsp" role="button">发布信息</a>
+						<a class="btn btn-default" href="publish.jsp" role="button">发布出租信息</a>
 					</c:when>
 					<c:otherwise>
-						<a class="btn btn-default" href="login.jsp" role="button">发布信息</a>
+						<a class="btn btn-default" href="login.jsp" role="button">发布出租信息</a>
 					</c:otherwise>
 				</c:choose>
 			</span>
+		</div>
+	</div>
+	<div>
+		<div class="center">
+		<a href="index.jsp"><img src="images/chuzu1.jpg" alt=""></a>
+		<a href="in_index.jsp"><img src="images/qiuzu2.jpg" alt=""></a>
 		</div>
 	</div>
 	<div class="search">
@@ -84,7 +89,7 @@
 		<input id="city" type="hidden" value="${city }"/>
 		<input id="country" type="hidden" value="${country }"/>
 			<div class="margin_span">
-				<span>区域</span>&nbsp&nbsp&nbsp&nbsp
+				<span>区域</span>&nbsp;&nbsp;&nbsp;&nbsp;
 				<select name="provinces" id="provinces_sel" onchange="city_();" class="form-control margin_top margin_left" value=$()>
 				<option>请选择省</option>
 				</select>
@@ -96,7 +101,7 @@
     			</select>
 			</div>
 			<div class="margin_span">
-				<span>租金</span>&nbsp&nbsp&nbsp&nbsp
+				<span>租金</span>&nbsp;&nbsp;&nbsp;&nbsp;
 				<select name="rent" id="rent" class="form-control margin_top margin_left">
 					<option value ="no">不限</option>
 					<option value ="0-500" <c:if test="${'0-500' eq rent}">selected</c:if>>500元以下</option>
@@ -109,7 +114,7 @@
 				</select>
 			</div>
 			<div class="margin_span">
-				<span>厅室</span>&nbsp&nbsp&nbsp&nbsp
+				<span>厅室</span>&nbsp;&nbsp;&nbsp;&nbsp;
 				<select name="room" id="room" class="form-control margin_top margin_left">
 					<option value ="0">不限</option>
 					<option value ="1" <c:if test="${'1' eq room}">selected</c:if>>一室</option>
@@ -120,7 +125,7 @@
 				</select>
 			</div>
 			<div class="margin_span">
-				<span>方式</span>&nbsp&nbsp&nbsp&nbsp
+				<span>方式</span>&nbsp;&nbsp;&nbsp;&nbsp;
 				<select name="hireWay" id="hireWay" class="form-control margin_top margin_left">
 					<option value ="no">不限</option>
 					<option value ="整套出租" <c:if test="${'整套出租' eq hireWay}">selected</c:if>>整套出租</option>
@@ -129,9 +134,9 @@
 				</select>
 			</div>
 			<div class="margin_span">
-				&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<!-- <input type="text" class="form-control margin_span" placeholder="详细内容补充"> -->
-				<input type="submit" class="btn btn-info margin_span" value="搜索">
+				<input type="submit" class="btn btn-info margin_span width" value="搜索">
 			</div>
 		</form>
 		
@@ -271,6 +276,9 @@
 				</td>
 			</tr>
 		</table>
+	</div>
+	<div class="suspension">
+		<img src="images/defult02.jpg" alt="">
 	</div>
 	<div class="footer">
 		<span class="outher">@outher aheizi</span>

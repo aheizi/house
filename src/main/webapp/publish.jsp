@@ -35,11 +35,10 @@
 							<li class="dropdown" id="accountmenu">
 		                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userSession}<b class="caret"></b></a>
 		                        <ul class="dropdown-menu">
-		                            <li><a href="#">我的house</a></li>
-		                            <li><a href="#">我的发布</a></li>
-		                            <!-- <li class="divider"></li> -->
-		                            <li><a href="#">我的收藏</a></li>
-									<li><a href="#">退出</a></li>
+		                            <li><a href="my_house_grzl.jsp">我的house</a></li>
+		                            <li><a href="my_house_wdfb.jsp">我的发布</a></li>
+		                            <li><a href="my_house_wdsc.jsp">我的收藏</a></li>
+									<li><a href="user.do?action=logout">退出</a></li>
 		                        </ul>
 		                    </li>
 						</c:when>
@@ -141,7 +140,7 @@
 					<tr>
 						<th class="float_r">上传图片</th>
 						<td>
-							<input type="file" id="exampleInputFile" class="margin_top margin_left" name="imgUrl">
+							<input type="file" id="exampleInputFile" class="margin_top left" name="imgUrl">
 						</td>
 					</tr>
 					<tr>

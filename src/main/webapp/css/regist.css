@@ -2,7 +2,7 @@ body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { font-family: Micro
 a{cursor: pointer;}
 body{margin: 0px;height: 100%;}
 html{height: 100%;}
-.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 88px;border-bottom: #dbe0e3 1px solid;}
+.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 136px;border-bottom: #dbe0e3 1px solid;}
 .logo{float: left;}
 .regmenu{border-bottom: 1px solid #cdcfd1;height: 37px;width: 678px;  margin: 0 auto;}
 .win1000{width: 1000px;text-align: center;margin: 0 auto;margin-top: 20px;}

@@ -8,7 +8,7 @@ body{margin: 0px;}
 .bar_right {float: right;}
 .login{}
 
-.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 88px;border-bottom: #dbe0e3 1px solid;}
+.center{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;height: 137px;border-bottom: #dbe0e3 1px solid;}
 .center1{width: 1000px;margin: 0 auto;clear: both;line-height: 27px;}
 .logo{float: left;}
 .publish{float: right;margin: 25px auto;}
@@ -17,9 +17,10 @@ body{margin: 0px;}
 .footer{width: 1000px;margin-left: auto;margin-right: auto;border-top: 1px solid #ededed;margin-bottom: 0px;text-align: center;}
 .width_s{width: 100px;}
 .width_l{width: 400px;}
-.margin_bottom{margin-bottom: 10px;}
+.margin_bottom{margin-bottom: 20px;}
 
 .float_r{float:right;}
+.left{margin-left: 15px}
 
 .margin_left{margin-left: 5px;}
 .margin_top{margin-top: 10px;}
