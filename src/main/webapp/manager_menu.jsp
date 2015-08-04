@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +7,7 @@
     <link rel="stylesheet" href="css/zTreeStyle.css" type="text/css">
     <script type="text/javascript" src="http://static.solaridc.com/jquery/jquery-1.4.4.js"></script>
     <script type="text/javascript" src="js/jquery.ztree.core-3.0.js"></script>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <style type="text/css">
     .ztree li a.level0 {height: 25px; text-align: center; display:block; border:0px silver solid; border-right: 0; margin-bottom: 5px;}
     .ztree li a.level1 span{} 
@@ -19,10 +21,11 @@
     .ztree li a.curSelectedNode{font-weight:bold;}
     </style>
     <script>
-    	var weixin = "[{id:'1',pId:'',name:'用户管理',target:'decoratorIframeBody',url:'manager_user.jsp',icon:'images/zTree_37.png'},"
+    	var weixin = "["
+    	+"{id:'1',pId:'',name:'用户管理',target:'decoratorIframeBody',url:'user.do?action=managerUser',icon:'images/zTree_37.png'},"
 		+"{id:'2',pId:'',name:'房屋管理',target:'decoratorIframeBody',url:'',icon:'images/zTree_40.png'},"
-        +"{id:'21',pId:'2',name:'出租房屋管理',target:'decoratorIframeBody',url:'manager_out.jsp',icon:'images/zTree_39.png'},"
-        +"{id:'22',pId:'2',name:'求租房屋管理',target:'decoratorIframeBody',url:'manager_in.jsp',icon:'images/zTree_39.png'},"
+        +"{id:'21',pId:'2',name:'出租房屋管理',target:'decoratorIframeBody',url:'house.do?action=managerHouseOut',icon:'images/zTree_39.png'},"
+        +"{id:'22',pId:'2',name:'求租房屋管理',target:'decoratorIframeBody',url:'houseIn.do?action=managerHouseIn',icon:'images/zTree_39.png'},"
 		+"{id:'3',pId:'',name:'主页通告管理',target:'decoratorIframeBody',url:'manager_news.jsp',icon:'images/zTree_40.png'}]";
 		
         var zTree_Menu = null;

@@ -23,14 +23,14 @@
 	    <span id="menutitle"></span>
 		<div class="com">
 	        <span style="width:120px">&nbsp;</span>
-	        <span>欢迎您，aheizi</span>
+	        <span>欢迎您，${sessionScope.managerName}</span>
 			<a href="javascript:logout();" style="color:#6383FF;padding:0 5px;">[退出]</a>
 		</div>
 	</div>
 </body>
 	<script>
 		function logout(){
-			parent.window.location="logout.do";
+			parent.window.location="user.do?action=managerLogout";
 		}
 	</script>
 </html>

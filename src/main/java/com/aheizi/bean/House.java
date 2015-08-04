@@ -27,6 +27,7 @@ public class House {
 	private String contact;      //联系人
 	private String contactTel;   //联系人电话
 	private String qqNum;        //QQ号码
+	private String state;        //状态（审核）
 	
 	public int getId() {
 		return id;
@@ -171,5 +172,11 @@ public class House {
 	}
 	public void setQqNum(String qqNum) {
 		this.qqNum = qqNum;
+	}
+	public String getState() {
+		return state;
+	}
+	public void setState(String state) {
+		this.state = state;
 	}
 }

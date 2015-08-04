@@ -37,7 +37,7 @@
 				data: "userName=" + userName + "&password=" + password,
                 success: function(data){
                 	//跳转到主页面
-                	ToUrl("index.jsp");
+                	ToUrl("index");
     			},
     			error:function(msg){
           			alert(msg.responseText);

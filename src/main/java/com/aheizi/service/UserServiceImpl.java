@@ -1,5 +1,7 @@
 package com.aheizi.service;
 
+import java.util.List;
+
 import com.aheizi.bean.User;
 import com.aheizi.dao.UserDao;
 
@@ -15,6 +17,27 @@ public class UserServiceImpl implements UserService {
 		return userDao.getUserByUserName(userName);
 	}
 
+	public void updateUser(User user) {
+		userDao.updateUser(user);
+	}
+	
+	public void updatePassword(String userName, String password) {
+		userDao.updatePassword(userName, password);
+	}
+	
+	public User getManagerByUserName(String userName) {
+		return userDao.getManagerByUserName(userName);
+	}
+	
+	public List<User> getAllUser() {
+		return userDao.getAllUser();
+	}
+	
+	public void saveManager(String managerName, String managerPassword) {
+		userDao.saveManager(managerName, managerPassword);
+	}
+
+	
 	public UserDao getUserDao() {
 		return userDao;
 	}
@@ -23,6 +46,5 @@ public class UserServiceImpl implements UserService {
 		this.userDao = userDao;
 	}
 
-	
 	
 }

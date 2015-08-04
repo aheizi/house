@@ -16,7 +16,7 @@
 		}
 		//我要收藏
 		function collect(){
-			var houseOutId = $("#houseOutId").val();
+			var houseInId = $("#houseInId").val();
 			//判断是否登陆
 			if($("#isLogin").val() == "false"){
 				alert("请先登陆");
@@ -25,11 +25,11 @@
 			}else{
 				//已经登录，进行收藏
 				jQuery.ajax({
-	    		    url : "house.do?action=collectHouseOutDtail",
+	    		    url : "houseIn.do?action=collectHouseInDtail",
 	        	    cache : false,
 	        	    type : "post",
 	        	    async : false,
-					data: "houseOutId=" + houseOutId,
+					data: "houseInId=" + houseInId,
 	                success: function(data){
 	                	//改变按钮属性
 	                	$("#collect").attr("value","已收藏");
@@ -48,7 +48,7 @@
 		<div class="center">
 			<div class="bar_left">
 				<div class="city">
-					<span>${sessionScope.area}</span>
+					<span>宜昌</span>
 					<a href="###">[切换城市]</a>
 				</div>
 			</div>
@@ -97,41 +97,41 @@
 		</div>
 	</div>
 	<div class="content">
-		<input type="hidden" id="houseOutId" value="${houseDtail.id}">
+		<input type="hidden" id="houseInId" value="${houseInDtail.id}">
 		<div class="main">
 			<div class="mainTitle">
-				<h3>${houseDtail.title}</h3>
+				<h3>${houseInDtail.title}</h3>
 			</div>
 			<div class="time">
-				<span>${houseDtail.publishDate}</span>
+				<span>${houseInDtail.publishDate}</span>
 			</div>
 			<div class="mainTop">
 				<div class="img">
 					<span>
-						<img src="images/house1.png" class="img_c">
+						<img src="images/defult.png" class="img_c">
 					</span>
 				</div>
 			</div>
 			<div class="dtail">
 				<li class="margin_top">
 					<div class="sub_t">价格</div>
-					<div class="sub_c">${houseDtail.rent}元</div>
+					<div class="sub_c">${houseInDtail.rent}元</div>
 				</li><br/>
 				<li class="margin_top">
-					<div class="sub_t">概况</div>
-					<div class="sub_c">${houseDtail.room}室${houseDtail.hall}厅${houseDtail.toilet}卫  &nbsp&nbsp&nbsp&nbsp ${houseDtail.squareMeter}㎡</div>
+					<div class="sub_t">地区</div>
+					<div class="sub_c">${houseInDtail.country}</div>
 				</li><br/>
 				<li class="margin_top">
-					<div class="sub_t">楼层</div>
-					<div class="sub_c">${houseDtail.floor}层/${houseDtail.floorth}层</div>
+					<div class="sub_t">入住时间</div>
+					<div class="sub_c">${houseInDtail.time}</div>
 				</li><br/>
 				<li class="margin_top">
-					<div class="sub_t">区域</div>
-					<div class="sub_c">${houseDtail.communityName}</div>
+					<div class="sub_t">求租方式</div>
+					<div class="sub_c">${houseInDtail.rentWay}</div>
 				</li><br/>
 				<li class="margin_top">
 					<div class="sub_t">联系</div>
-					<div class="sub_c">${houseDtail.contact}(${houseDtail.identity})/电话:${houseDtail.contactTel}</div>
+					<div class="sub_c">${houseInDtail.contact}/电话:${houseInDtail.contactTel}</div>
 				</li><br/>
 				<li class="margin_top">
 					<c:choose>
@@ -148,11 +148,11 @@
 	</div>
 	<div class="describ">
 		<div class="textDes">
-			<h3>房源描述</h3>
+			<h3>求租房描述</h3>
 		</div>
 		<div class="cur">
 			<span>
-				${houseDtail.description}
+				${houseInDtail.description}
 			</span>
 		</div>
 	</div>

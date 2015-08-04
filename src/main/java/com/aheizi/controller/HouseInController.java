@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.multiaction.MultiActionController;
 
-import com.aheizi.bean.House;
-import com.aheizi.service.HouseService;
+import com.aheizi.bean.HouseIn;
+import com.aheizi.service.HouseInService;
 
-public class HouseController extends MultiActionController{
-	private HouseService houseService;
+public class HouseInController extends MultiActionController{
+
+	private HouseInService houseInService;
 	
 	/**
 	 * 保存房屋信息
@@ -23,17 +24,16 @@ public class HouseController extends MultiActionController{
 	 * @return
 	 * @throws Exception
 	 */
-	public String saveHouse(HttpServletRequest request,
+	public String saveHouseIn(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
-		
-		House house = new House();
-		super.bind(request, house);
+		HouseIn houseIn = new HouseIn();
+		super.bind(request, houseIn);
 		
 		//保存到数据库
-		houseService.saveHouse(house);
+		houseInService.saveHouseIn(houseIn);
 		
-		return "redirect:index";
+		return "redirect:houseIn.do?action=indexHouseIn";
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class HouseController extends MultiActionController{
 	 * @return
 	 * @throws Exception
 	 */
-	public ModelAndView searchHouse(HttpServletRequest request,
+	public ModelAndView searchHouseIn(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
 		Map<String, Object> model = new HashMap<String, Object>();
@@ -54,7 +54,6 @@ public class HouseController extends MultiActionController{
 		String provinces = request.getParameter("provinces");
 		String country = request.getParameter("country");
 		String rent = request.getParameter("rent");
-		int room = Integer.parseInt(request.getParameter("room"));
 		String hireWay = request.getParameter("hireWay");
 		
 		int rentStart = 0;
@@ -66,41 +65,38 @@ public class HouseController extends MultiActionController{
 		}
 		
 		//根据条件到数据库中查找
-		List<House> houseList = houseService.searchHouse(provinces,city,country,rentStart,rentEnd,room,hireWay);
-		//符合要求的房屋信息
-		model.put("houseList",houseList);
+		List<HouseIn> houseInList = houseInService.searchHouseIn(provinces,city,country,rentStart,rentEnd,hireWay);
 		
-		//回显
+		model.put("houseInList",houseInList);
 		model.put("city",city);
 		model.put("provinces",provinces);
 		model.put("country",country);
 		model.put("rent", rent);
-		model.put("room", room);
 		model.put("hireWay", hireWay);
 		
-		ModelAndView view = new ModelAndView("index",model);
+		ModelAndView view = new ModelAndView("in_index",model);
 		
 		return view;
 	}
 	
 	/**
-	 * 跳转到houseDtail
+	 * 跳转到houseInDtail
 	 * @param request
 	 * @param response
 	 * @return
 	 * @throws Exception
 	 */
-	public ModelAndView houseDtail(HttpServletRequest request,
+	public ModelAndView houseInDtail(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		
 		Map<String, Object> model = new HashMap<String, Object>();
 		
 		request.setCharacterEncoding("UTF-8");
+		int houseInId = Integer.parseInt(request.getParameter("id"));
 		
-		int houseId = Integer.parseInt(request.getParameter("id"));
-		
-		House houseDtail = houseService.findHouseById(houseId);
-		model.put("houseDtail", houseDtail);
+		//获取房屋详细信息
+		HouseIn houseInDtail = houseInService.findHouseInById(houseInId);
+		model.put("houseInDtail", houseInDtail);
 		
 		//判断该用户是否收藏该房屋信息(参数：用户id、houseInId)
 		if(request.getSession().getAttribute("userId") == null){
@@ -109,7 +105,7 @@ public class HouseController extends MultiActionController{
 		}else{
 			int userId = (Integer) request.getSession().getAttribute("userId");
 			//用户是否收藏
-			if(!houseService.isCollectHouseOut(houseId, userId)){
+			if(!houseInService.isCollectHouseOut(houseInId, userId)){
 				//用户已经登录，但是未收藏
 				model.put("isCollect", "0");
 			}else{
@@ -118,7 +114,7 @@ public class HouseController extends MultiActionController{
 			}
 		}
 		
-		ModelAndView view = new ModelAndView("houseDtail",model);
+		ModelAndView view = new ModelAndView("houseInDtail",model);
 		
 		return view;
 	}
@@ -130,61 +126,62 @@ public class HouseController extends MultiActionController{
 	 * @return
 	 * @throws Exception
 	 */
-	public ModelAndView collectHouseOutDtail(HttpServletRequest request,
+	public ModelAndView collectHouseInDtail(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("UTF-8");
 		
+		System.out.println(request.getParameter("houseInId"));
 		//houseIn 的id
-		int houseId = Integer.parseInt(request.getParameter("houseOutId"));
+		int houseInId = Integer.parseInt(request.getParameter("houseInId"));
 		//userId
 		int userId = (Integer) request.getSession().getAttribute("userId");
 		
 		//收藏
-		houseService.collectHouseOut(houseId, userId);
+		houseInService.collectHouseIn(houseInId, userId);
 
 		response.getWriter().println("");
 		return null;
 	}
-	
-	//删除出租房屋信息
-	public String deleteHouseOut(HttpServletRequest request,
+
+	//删除求租房屋信息
+	public String deleteHouseIn(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		//houseIn 的id
-		int houseOutId = Integer.parseInt(request.getParameter("houseOutId"));
+		int houseInId = Integer.parseInt(request.getParameter("houseInId"));
 		
 		//删除
-		houseService.deleteHouseOutById(houseOutId);
+		houseInService.deleteHouseInById(houseInId);
 
 		//跳转到我的发布
 		return "redirect:myHouse.do?action=myHouse";
 	}
 	
 	//取消收藏
-	public String cancelCollectHouseOut(HttpServletRequest request,
+	public String cancelCollectHouseIn(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		//houseIn 的id
-		int houseOutId = Integer.parseInt(request.getParameter("houseOutId"));
+		int houseInId = Integer.parseInt(request.getParameter("houseInId"));
 		//userId
 		int userId = (Integer) request.getSession().getAttribute("userId");
 		
 		//取消收藏
-		houseService.cancelCollectHouseOut(userId, houseOutId);
+		houseInService.cancelCollectHouseIn(userId, houseInId);
 
 		//跳转到我的收藏
 		return "redirect:myHouse.do?action=wdsc";
 	}
 	
 	//待审核的信息
-	public ModelAndView managerHouseOut(HttpServletRequest request,
+	public ModelAndView managerHouseIn(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-		//查找所有未审核的出租房屋信息
-		List<House> noCheckHouseOutList = houseService.findNoCheckHouseOut();
-		
+		//查找所有未审核的求租房屋信息
+		List<HouseIn> noCheckHouseInList = houseInService.findNoCheckHouseIn();
+
 		Map<String, Object> model = new HashMap<String, Object>();
 		
-		model.put("noCheckHouseOutList", noCheckHouseOutList);
+		model.put("noCheckHouseInList", noCheckHouseInList);
 
-		return new ModelAndView("manager_out",model);
+		return new ModelAndView("manager_in",model);
 	}
 	
 	//审核
@@ -196,17 +193,29 @@ public class HouseController extends MultiActionController{
 		int houseOutId = Integer.parseInt(request.getParameter("id"));
 		
 		//更新数据库
-		houseService.updateHouseOutState(houseOutId, state);
+		houseInService.updateHouseInState(houseOutId, state);
 
-		return "redirect:house.do?action=managerHouseOut";
+		return "redirect:houseIn.do?action=managerHouseIn";
 	}
 	
-	public HouseService getHouseService() {
-		return houseService;
-	}
+	//转到HouseIn主页
+	public ModelAndView indexHouseIn(HttpServletRequest request,
+			HttpServletResponse response) throws Exception {
+		//查找所有未审核的求租房屋信息
+		List<HouseIn> indexHouseInList = houseInService.findIndexHouseIn();
 
-	public void setHouseService(HouseService houseService) {
-		this.houseService = houseService;
+		Map<String, Object> model = new HashMap<String, Object>();
+		
+		model.put("houseInList", indexHouseInList);
+
+		return new ModelAndView("in_index",model);
 	}
 	
+	public HouseInService getHouseInService() {
+		return houseInService;
+	}
+
+	public void setHouseInService(HouseInService houseInService) {
+		this.houseInService = houseInService;
+	}
 }

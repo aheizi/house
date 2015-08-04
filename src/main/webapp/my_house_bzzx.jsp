@@ -17,7 +17,7 @@
 		<div class="center">
 			<div class="bar_left">
 				<div class="city">
-					<span>宜昌</span>
+					<span>${sessionScope.area}</span>
 					<a href="###">[切换城市]</a>
 				</div>
 			</div>
@@ -28,9 +28,9 @@
 							<li class="dropdown" id="accountmenu">
 		                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userSession}<b class="caret"></b></a>
 		                        <ul class="dropdown-menu">
-		                            <li><a href="my_house_grzl.jsp">我的house</a></li>
-		                            <li><a href="my_house_wdfb.jsp">我的发布</a></li>
-		                            <li><a href="my_house_wdsc.jsp">我的收藏</a></li>
+		                            <li><a href="user.do?action=grzl">我的house</a></li>
+		                            <li><a href="myHouse.do?action=myHouse">我的发布</a></li>
+		                            <li><a href="myHouse.do?action=wdsc">我的收藏</a></li>
 									<li><a href="user.do?action=logout">退出</a></li>
 		                        </ul>
 		                    </li>
@@ -47,7 +47,7 @@
 	<div class="title">
 		<div class="center">
 			<span class="logo">
-				<a href="index.jsp">
+				<a href="index">
 					<img src="images/logo.png">
 				</a>
 			</span>
@@ -66,13 +66,13 @@
 		<div class="lmenu left" >
 			<ul id="lmenu_ul">
 				<li class="top">
-					<a href="my_house_grzl.jsp"><img src="images/11.jpg" alt=""></a>
+					<a href="user.do?action=grzl"><img src="images/11.jpg" alt=""></a>
 				</li>
 				<li class="top">
-					<a href="my_house_wdfb.jsp"><img src="images/12.jpg" alt=""></a>
+					<a href="myHouse.do?action=myHouse"><img src="images/12.jpg" alt=""></a>
 				</li>
 				<li class="top">
-					<a href="my_house_wdsc.jsp"><img src="images/13.jpg" alt=""></a>
+					<a href="myHouse.do?action=wdsc"><img src="images/13.jpg" alt=""></a>
 				</li>
 				<li class="top">
 					<a href="my_house_bzzx.jsp"><img src="images/09.jpg" alt=""></a>

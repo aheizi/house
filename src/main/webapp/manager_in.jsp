@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!doctype  html>
 <html>
    <head>
@@ -5,6 +6,7 @@
 	<title>manager_user</title>
 	<link rel="stylesheet" type="text/css" href="css/public.css" />
 	<link rel="stylesheet" type="text/css" href="css/public_all.css" />
+	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<script type="text/javascript" src="http://static.solaridc.com/jquery/jquery-1.4.4.js"></script>
 	 <style>
 		.blue_btn{cursor:pointer;}
@@ -21,21 +23,22 @@
 							<th>标题</th>
 							<th>发布时间</th>
 							<th>发布人</th>
-							<th>审核状态</th>
 							<th>操作</th>
 						</tr>
-						<tr>
-                            <td><a href="" target="_Blank">[整租]600-1300元、一室一厅、隆康路有空调电视</a></td>
-                            <td>2015-05-05</td>
-							<td>aheizi</td>
-							<td>已通过审核</td>
-							<td>
-								<a class="green_btn" href="###">审核通过</a>
-								<a class="green_btn" href="###">审核不通过</a>
-								<a class="green_btn" onclick = "javascript:if(!confirm('确认要删除吗？')){return false;}" href="feiyin.do?action=deleteFeiyinDevice&id=$!feiyinDevice.id">删除</a>
-                            </td>
-						</tr>
-						<tr><td colspan="5" align="center">没有符合条件的记录</td></tr>
+						<c:forEach items="${noCheckHouseInList}" var="houseIn">
+							<tr>
+	                            <td><a href="houseIn.do?action=houseDtail&id=${houseIn.id}" target="_Blank">${houseIn.title}</a></td>
+	                            <td>${houseIn.publishDate}</td>
+								<td>${houseIn.publisher}</td>
+								<td>
+									<a class="green_btn" href="houseIn.do?action=managerCheck&state=2&id=${houseIn.id}">审核通过</a>
+									<a class="green_btn" href="houseIn.do?action=managerCheck&state=3&id=${houseIn.id}">审核不通过</a>
+	                            </td>
+							</tr>
+						</c:forEach>
+						<c:if test="${empty noCheckHouseInList}">
+							<tr><td colspan="5" align="center">没有符合条件的记录</td></tr>
+						</c:if>
 				</table>
 			</div>
 	   </div>

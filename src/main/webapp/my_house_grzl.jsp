@@ -1,3 +1,4 @@
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,10 @@
 	<script src="js/province_str.js" type="text/javascript"></script>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 	<script type="text/javascript">
+		function edit_submit(){
+			alert("资料修改成功！");
+			$("form").submit();
+		}
 	</script>
 </head>
 <body>
@@ -28,9 +33,9 @@
 							<li class="dropdown" id="accountmenu">
 		                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">${sessionScope.userSession}<b class="caret"></b></a>
 		                        <ul class="dropdown-menu">
-		                            <li><a href="my_house_grzl.jsp">我的house</a></li>
-		                            <li><a href="my_house_wdfb.jsp">我的发布</a></li>
-		                            <li><a href="my_house_wdsc.jsp">我的收藏</a></li>
+		                            <li><a href="user.do?action=grzl">我的house</a></li>
+		                            <li><a href="myHouse.do?action=myHouse">我的发布</a></li>
+		                            <li><a href="myHouse.do?action=wdsc">我的收藏</a></li>
 									<li><a href="user.do?action=logout">退出</a></li>
 		                        </ul>
 		                    </li>
@@ -47,7 +52,7 @@
 	<div class="title">
 		<div class="center">
 			<span class="logo">
-				<a href="index.jsp">
+				<a href="index">
 					<img src="images/logo.png">
 				</a>
 			</span>
@@ -66,13 +71,13 @@
 		<div class="lmenu left" >
 			<ul id="lmenu_ul">
 				<li class="top">
-					<a href="my_house_grzl.jsp"><img src="images/06.jpg" alt=""></a>
+					<a href="user.do?action=grzl"><img src="images/06.jpg" alt=""></a>
 				</li>
 				<li class="top">
-					<a href="my_house_wdfb.jsp"><img src="images/12.jpg" alt=""></a>
+					<a href="myHouse.do?action=myHouse"><img src="images/12.jpg" alt=""></a>
 				</li>
 				<li class="top">
-					<a href="my_house_wdsc.jsp"><img src="images/13.jpg" alt=""></a>
+					<a href="myHouse.do?action=wdsc"><img src="images/13.jpg" alt=""></a>
 				</li>
 				<li class="top">
 					<a href="my_house_bzzx.jsp"><img src="images/10.jpg" alt=""></a>
@@ -81,24 +86,27 @@
 		</div>
 		<div class="right" id="right-con-user">
 			<div class="regtable">
-			<form class="form-horizontal">
+			<form action="user.do?action=grzl_edit" method="post" class="form-horizontal">
 				<table>
 					<tr>
 						<td>用户名</td>
 						<td>
-							<span class="margin_top margin_left" name="">aheizi</span>
+							<span class="margin_top margin_left" name="userName">${user.userName}</span>
+							<input type="hidden" name="userName" value="${user.userName}">
 						</td>
 					</tr>
 					<tr>
 						<td>邮箱</td>
 						<td>
-							<span class="margin_top margin_left" name="">785193391@qq.com</span>
+							<span class="margin_top margin_left" name="email">${user.email}</span>
+							<input type="hidden" name="email" value="${user.email}">
 						</td>
 					</tr>
 					<tr>
 						<td>密码</td>
 						<td>
 							<span class="margin_top margin_left" name="">已设定</span>
+							<input type="hidden" name="password" value="${user.password}">
 						</td>
 						<td>
 							<a href="my_house_grzl_password.jsp">修改</a>
@@ -107,25 +115,25 @@
 					<tr>
 						<td>真实姓名</td>
 						<td>
-							<input type="text" class="form-control margin_top margin_left" name="">
+							<input type="text" class="form-control margin_top margin_left" name="realName" value="${user.realName}">
 						</td>
 					</tr>
 					<tr>
 						<td>地址</td>
 						<td>
-							<input type="text" class="form-control margin_top margin_left" name="">
+							<input type="text" class="form-control margin_top margin_left" name="address" value="${user.address}">
 						</td>
 					</tr>
 					<tr>
 						<td>邮编</td>
 						<td>
-							<input type="text" class="form-control margin_top margin_left" name="">
+							<input type="text" class="form-control margin_top margin_left" name="zipCode" value="${user.zipCode}">
 						</td>
 					</tr>
 					<tr>
 						<td></td>
 						<td>
-							<input type="button" class="btn btn-primary margin_top margin_left" value="完成修改">
+							<input type="button" class="btn btn-primary margin_top margin_left" value="完成修改" onclick="edit_submit();">
 						</td>
 					</tr>
 				</table>

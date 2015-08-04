@@ -90,7 +90,7 @@
 	<div class="title">
 		<div class="center">
 			<span class="logo">
-				<a href="index.jsp">
+				<a href="index">
 					<img src="images/logo.png">
 				</a>
 			</span>
@@ -111,6 +111,9 @@
 		<div class="regtable">
 			<form id="form" class="form-horizontal" action="user.do?action=saveUser" method="post">
 				<input type="hidden" name="type" value="normal">
+				<input type="hidden" name="realName" value="">
+				<input type="hidden" name="address" value="">
+				<input type="hidden" name="zipCode" value="">
 				<table>
 					<tr>
 						<td>用户名</td>
