@@ -150,7 +150,7 @@ public class HouseInDaoImpl extends BaseDao implements HouseInDao {
 		querySql.append("SELECT COUNT(*) from house_collection hc");
 		querySql.append(" where hc.user_id = ? and hc.in_dtail_id = ?");
     	Object[] params=new Object[]{userId,hosueInId};
-    	int i = this.getJdbcTemplate().queryForInt(querySql.toString(), params);
+    	int i = this.getJdbcTemplate().queryForObject(querySql.toString(), params, Integer.class);
     	if(i>0){
     		return true;
     	}else{

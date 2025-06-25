@@ -1,5 +1,16 @@
 # Maven构建目录
 target/
+target/**/*
+
+# 编译生成的文件
+*.class
+target/classes/
+target/house/WEB-INF/classes/
+target/maven-archiver/
+target/maven-status/
+
+# 打包文件
+target/house.war
 
 # 编译生成的class文件
 *.class
