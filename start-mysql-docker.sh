@@ -22,7 +22,7 @@ docker pull mysql:8.0
 # 创建MySQL容器
 echo "创建并启动MySQL容器..."
 docker run --name $CONTAINER_NAME \
-    -p 3306:3306 \
+    -p 3307:3306 \
     -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \
     -e MYSQL_DATABASE=$MYSQL_DATABASE \
     -e MYSQL_ROOT_HOST='%' \
@@ -56,10 +56,10 @@ docker exec -i $CONTAINER_NAME mysql -uroot -p$MYSQL_ROOT_PASSWORD -e "USE $MYSQ
 echo "MySQL容器已成功启动，数据库已初始化"
 echo "容器名称: $CONTAINER_NAME"
 echo "数据库名称: $MYSQL_DATABASE"
-echo "端口映射: 3306:3306"
+echo "端口映射: 3307:3306"
 echo "可以通过以下方式连接数据库:"
 echo "  - 主机: localhost 或 本机IP"
-echo "  - 端口: 3306"
+echo "  - 端口: 3307"
 echo "  - 用户名: root"
 echo "  - 密码: $MYSQL_ROOT_PASSWORD"
 echo "  - 数据库: $MYSQL_DATABASE"

@@ -25,6 +25,26 @@
 		<property name="url" value="${db.url}" />
 		<property name="username" value="${db.username}" />
 		<property name="password" value="${db.password}" />
+		<!-- 连接池配置 -->
+		<property name="initialSize" value="5" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="10" />
+		<property name="minIdle" value="5" />
+		<property name="maxWait" value="60000" />
+		<!-- 连接验证配置 -->
+		<property name="validationQuery" value="SELECT 1" />
+		<property name="testOnBorrow" value="true" />
+		<property name="testWhileIdle" value="true" />
+		<property name="timeBetweenEvictionRunsMillis" value="60000" />
+		<!-- 连接属性 -->
+		<property name="connectionProperties">
+			<value>
+				connectTimeout=30000;
+				socketTimeout=60000;
+				autoReconnect=true;
+				useSSL=false;
+			</value>
+		</property>
 	</bean>
 
 	<!-- 用到 jdbcTemplate 请直接引入；无需引入数据源dateSource -->
